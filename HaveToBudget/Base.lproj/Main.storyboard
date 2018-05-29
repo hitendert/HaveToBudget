@@ -91,17 +91,20 @@
                     <navigationItem key="navigationItem" title="Have To Budget" id="Nie-Am-YQb">
                         <barButtonItem key="leftBarButtonItem" title="Details" id="bBG-NT-dvh">
                             <connections>
+                                <action selector="detailsButtonTapped:" destination="BYZ-38-t0r" id="XE1-A6-nMa"/>
                                 <segue destination="n6T-Ul-Guy" kind="show" id="TEJ-3S-LHM"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2Sw-QH-52m">
                             <connections>
+                                <action selector="addButtonTapped:" destination="BYZ-38-t0r" id="nvy-4D-7oc"/>
                                 <segue destination="xin-7M-TU7" kind="show" id="oib-V1-7yZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="balanceLabel" destination="ejK-1E-L7k" id="Rz9-vt-aiD"/>
+                        <outlet property="categoryPickerView" destination="8KL-pV-DwH" id="AVx-8i-wFc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -11,9 +11,21 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBOutlet weak var balanceLabel: UILabel!
+    @IBOutlet weak var categoryPickerView: UIPickerView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
+    @IBAction func addButtonTapped(_ sender: Any) {
+        
+    }
+    
+    @IBAction func detailsButtonTapped(_ sender: Any) {
+        
+    }
+    
 }
 
