@@ -11,6 +11,7 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBOutlet weak var balanceLabel: UILabel!
+    @IBOutlet weak var balanceLabel2: UILabel!
     @IBOutlet weak var categoryPickerView: UIPickerView!
     
     

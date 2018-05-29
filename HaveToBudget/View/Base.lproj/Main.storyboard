@@ -54,6 +54,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="c4K-qv-k91"/>
                     </view>
+                    <connections>
+                        <outlet property="detailCategoryPickerView" destination="iyz-Hz-IcH" id="5hT-O8-4ec"/>
+                        <outlet property="detailTableView" destination="Kn4-gn-AgB" id="4jd-xP-efe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="que-Zb-FVq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -144,6 +148,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="balanceLabel" destination="ejK-1E-L7k" id="Rz9-vt-aiD"/>
+                        <outlet property="balanceLabel2" destination="8gs-S4-dfv" id="8zy-BX-S0A"/>
                         <outlet property="categoryPickerView" destination="8KL-pV-DwH" id="AVx-8i-wFc"/>
                     </connections>
                 </viewController>
@@ -204,6 +209,9 @@
                                 <state key="normal" title="Add">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="bottomAddTapped:" destination="xin-7M-TU7" eventType="touchUpInside" id="vlW-qM-bpR"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ES-Fb-reP">
                                 <rect key="frame" x="16" y="274" width="288" height="21"/>
@@ -221,6 +229,7 @@
                                 </constraints>
                                 <state key="normal" title="Add Money"/>
                                 <connections>
+                                    <action selector="addMoneyButtonTapped:" destination="xin-7M-TU7" eventType="touchUpInside" id="G5G-vV-XWQ"/>
                                     <segue destination="F8X-5F-OY1" kind="show" id="CWR-8G-gnS"/>
                                 </connections>
                             </button>
@@ -258,6 +267,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="av4-6l-H9M"/>
                     </view>
+                    <connections>
+                        <outlet property="addCategoryPickerView" destination="cjn-9k-eqB" id="nIM-HH-Uji"/>
+                        <outlet property="addMoneyButton" destination="O7j-VC-Qqw" id="uhB-rU-hKa"/>
+                        <outlet property="forWhatTextField" destination="tNz-7o-V7A" id="CwT-EL-IX1"/>
+                        <outlet property="howMuchTextField" destination="QdQ-R3-p08" id="Fdt-8O-8db"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1sY-5V-KXQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -278,6 +293,9 @@
                                 <state key="normal" title="Add">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="bottomAddTapped:" destination="F8X-5F-OY1" eventType="touchUpInside" id="FrI-OW-V1L"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="quQ-hD-M6U">
                                 <rect key="frame" x="17" y="145" width="281" height="30"/>
@@ -322,6 +340,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="vrR-qd-6T2"/>
                     </view>
+                    <connections>
+                        <outlet property="addMoneyTextField" destination="quQ-hD-M6U" id="TXv-4b-U2V"/>
+                        <outlet property="enterCategoryPickerView" destination="DQb-aj-eKd" id="ZvZ-Oa-7Uq"/>
+                        <outlet property="sourceOfMoneyTextField" destination="ZbJ-4D-gQj" id="Inl-Sh-4Og"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ox3-DF-sBR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

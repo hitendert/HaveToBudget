@@ -43,6 +43,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9103B25B20BDD31C00602801 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				91CE168620BC63AE004C3C72 /* MainViewController.swift */,
+				91CE169920BC6830004C3C72 /* AddViewController.swift */,
+				91CE169B20BC6A3E004C3C72 /* DetailViewController.swift */,
+				91CE169F20BC79A8004C3C72 /* EnterBudgetViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9103B25C20BDD33800602801 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				91CE168B20BC63AE004C3C72 /* HaveToBudget.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9103B25D20BDD35C00602801 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				91CE168820BC63AE004C3C72 /* Main.storyboard */,
+				91CE169020BC63B0004C3C72 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		91CE167820BC63AE004C3C72 = {
 			isa = PBXGroup;
 			children = (
@@ -62,16 +90,12 @@
 		91CE168320BC63AE004C3C72 /* HaveToBudget */ = {
 			isa = PBXGroup;
 			children = (
+				9103B25C20BDD33800602801 /* Model */,
+				9103B25D20BDD35C00602801 /* View */,
+				9103B25B20BDD31C00602801 /* Controller */,
 				91CE168420BC63AE004C3C72 /* AppDelegate.swift */,
-				91CE168620BC63AE004C3C72 /* MainViewController.swift */,
-				91CE169920BC6830004C3C72 /* AddViewController.swift */,
-				91CE169B20BC6A3E004C3C72 /* DetailViewController.swift */,
-				91CE169F20BC79A8004C3C72 /* EnterBudgetViewController.swift */,
-				91CE168820BC63AE004C3C72 /* Main.storyboard */,
 				91CE168E20BC63B0004C3C72 /* Assets.xcassets */,
-				91CE169020BC63B0004C3C72 /* LaunchScreen.storyboard */,
 				91CE169320BC63B0004C3C72 /* Info.plist */,
-				91CE168B20BC63AE004C3C72 /* HaveToBudget.xcdatamodeld */,
 			);
 			path = HaveToBudget;
 			sourceTree = "<group>";
