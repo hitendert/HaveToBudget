@@ -10,6 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var balanceLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
