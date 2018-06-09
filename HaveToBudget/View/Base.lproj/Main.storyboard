@@ -229,7 +229,6 @@
                                 </constraints>
                                 <state key="normal" title="Add Money"/>
                                 <connections>
-                                    <action selector="addMoneyButtonTapped:" destination="xin-7M-TU7" eventType="touchUpInside" id="G5G-vV-XWQ"/>
                                     <segue destination="F8X-5F-OY1" kind="show" id="CWR-8G-gnS"/>
                                 </connections>
                             </button>

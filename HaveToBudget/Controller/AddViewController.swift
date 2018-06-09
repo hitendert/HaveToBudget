@@ -7,31 +7,122 @@
 //
 
 import UIKit
+import CoreData
 
-class AddViewController: UIViewController {
+class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
 
     @IBOutlet weak var addMoneyButton: UIButton!
     @IBOutlet weak var forWhatTextField: UITextField!
     @IBOutlet weak var howMuchTextField: UITextField!
     @IBOutlet weak var addCategoryPickerView: UIPickerView!
     
+    let categoryArray : [String] = ["Charity","Savings","Housing","Utilities","Groceries","Restaurant","Clothing","Petrol","Vehichle Maintencance", "Medical", "Insurance", "Pocket Money", "Entertainment", "Vacation"]
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var expenseArray : [MoneyTransactions] = []
+    
+    var selectedCategory : String = ""
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-    }
-
-    @IBAction func addMoneyButtonTapped(_ sender: Any) {
         
+        addCategoryPickerView.dataSource = self
+        addCategoryPickerView.delegate = self
+
+        loadBudget()
+
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+
+
+    }
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categoryArray.count
+
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "\(categoryArray[row])"
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+
+        selectedCategory = categoryArray[row]
+    }
+
+
     @IBAction func bottomAddTapped(_ sender: Any) {
-        
+
+        if expenseArray.count > 0 {
+
+            for items in 0..<expenseArray.count {
+
+                if (expenseArray[items].category == selectedCategory) {
+
+                    expenseArray[items].money -= (howMuchTextField.text! as NSString).doubleValue
+                    expenseArray[items].forOrFrom = forWhatTextField.text!
+                    expenseArray[items].category = selectedCategory
+                    expenseArray[items].date = getDate()
+
+                    saveExpense()
+
+                } else {
+                    print("There's no budget entered for this yet")
+                }
+
+            }
+
+
+        }
+
     }
-    
+
+
+    func loadBudget() {
+
+        let request : NSFetchRequest<MoneyTransactions> = MoneyTransactions.fetchRequest()
+
+        do {
+            expenseArray = try context.fetch(request)
+
+        } catch {
+            print ("Error while fetching data in AddViewController")
+        }
+
+    }
+
+    func saveExpense() {
+
+        do {
+            try context.save()
+        } catch {
+            print("Error while saving data")
+        }
+
+
+    }
+
+    func getDate() -> String {
+
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+
+        let result = formatter.string(from: date)
+
+        return result
+    }
+
+
+
 
 }

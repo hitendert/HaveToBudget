@@ -10,7 +10,6 @@ import UIKit
 import CoreData
 
 class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
- 
     
     
     @IBOutlet weak var addMoneyTextField: UITextField!
@@ -22,6 +21,12 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    var addMoneyArray : [MoneyTransactions] = []
+    
+    
+    
+    var categoryFound : Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,8 +35,14 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
         enterCategoryPickerView.delegate = self
         enterCategoryPickerView.dataSource = self
        
+        loadTheArray()
+        print("Hitu count = \(addMoneyArray.count)")
         
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadTheArray()
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -53,19 +64,54 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
   
     @IBAction func bottomAddTapped(_ sender: Any) {
         
-        let newMoney = AddMoney(context: context)
         
-        if let addMoney = Double(addMoneyTextField.text!)
-        {
-        newMoney.addHowMuch = addMoney
+        if addMoneyArray.count > 0 {
+            
+            print("Hitu001 Cursor here")
+            for index in 0..<addMoneyArray.count {
+                
+                if addMoneyArray[index].category == selectedCategory {
+                    
+                    print("Hitu002 Cursor here")
+                    addMoneyArray[index].money += (addMoneyTextField.text! as NSString).doubleValue
+                    addMoneyArray[index].forOrFrom = sourceOfMoneyTextField.text!
+                    addMoneyArray[index].category = selectedCategory
+                    addMoneyArray[index].date = getDate()
+                    categoryFound = true
+                    
+                    saveIncome()
+                    
+                }
+                
+            }
+                if categoryFound == false {
+                    
+                    print("Hitu003 Cursor here")
+                    let newMoney = MoneyTransactions(context: context)
+                    newMoney.money = (addMoneyTextField.text! as NSString).doubleValue
+                    newMoney.forOrFrom = sourceOfMoneyTextField.text!
+                    newMoney.category = selectedCategory
+                    newMoney.date = getDate()
+                    
+                    saveIncome()
+                    
+                }
+                
+        } else {
+            print("Hitu004 Cursor here")
+            let newMoney = MoneyTransactions(context: context)
+            newMoney.money = (addMoneyTextField.text! as NSString).doubleValue
+            newMoney.forOrFrom = sourceOfMoneyTextField.text!
+            newMoney.category = selectedCategory
+            newMoney.date = getDate()
+            
+            saveIncome()
         }
         
-        newMoney.sourceOfMoney = sourceOfMoneyTextField.text
-        newMoney.category = selectedCategory
-       
-        saveIncome()
+        
         
     }
+    
     
     func saveIncome() {
         
@@ -76,6 +122,28 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
         } catch {
             print("Error while saving")
         }
+        
+    }
+    
+    func loadTheArray() {
+        
+        let request : NSFetchRequest<MoneyTransactions> = MoneyTransactions.fetchRequest()
+        do {
+            addMoneyArray = try context.fetch(request)
+        } catch {
+            print("Error while fetching in Enter Budget VC")
+        }
+        
+    }
+    
+    func getDate() -> String {
+        
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        let result = formatter.string(from: date)
+        
+        return result
         
     }
     

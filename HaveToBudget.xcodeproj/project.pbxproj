@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		918BCCBE20C404220028C219 /* CustomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BCCBC20C404220028C219 /* CustomeCell.swift */; };
 		918BCCBF20C404220028C219 /* CustomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 918BCCBD20C404220028C219 /* CustomeCell.xib */; };
+		918BCCD320CBD0250028C219 /* HaveToBudget.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 918BCCD120CBD0250028C219 /* HaveToBudget.xcdatamodeld */; };
 		91CE168520BC63AE004C3C72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE168420BC63AE004C3C72 /* AppDelegate.swift */; };
 		91CE168720BC63AE004C3C72 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE168620BC63AE004C3C72 /* MainViewController.swift */; };
 		91CE168A20BC63AE004C3C72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91CE168820BC63AE004C3C72 /* Main.storyboard */; };
-		91CE168D20BC63AE004C3C72 /* HaveToBudget.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91CE168B20BC63AE004C3C72 /* HaveToBudget.xcdatamodeld */; };
 		91CE168F20BC63B0004C3C72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91CE168E20BC63B0004C3C72 /* Assets.xcassets */; };
 		91CE169220BC63B0004C3C72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91CE169020BC63B0004C3C72 /* LaunchScreen.storyboard */; };
 		91CE169A20BC6830004C3C72 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE169920BC6830004C3C72 /* AddViewController.swift */; };
@@ -23,11 +23,11 @@
 /* Begin PBXFileReference section */
 		918BCCBC20C404220028C219 /* CustomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeCell.swift; sourceTree = "<group>"; };
 		918BCCBD20C404220028C219 /* CustomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomeCell.xib; sourceTree = "<group>"; };
+		918BCCD220CBD0250028C219 /* HaveToBudget.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HaveToBudget.xcdatamodel; sourceTree = "<group>"; };
 		91CE168120BC63AE004C3C72 /* HaveToBudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaveToBudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91CE168420BC63AE004C3C72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91CE168620BC63AE004C3C72 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		91CE168920BC63AE004C3C72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		91CE168C20BC63AE004C3C72 /* HaveToBudget.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HaveToBudget.xcdatamodel; sourceTree = "<group>"; };
 		91CE168E20BC63B0004C3C72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91CE169120BC63B0004C3C72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91CE169320BC63B0004C3C72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 		9103B25C20BDD33800602801 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				91CE168B20BC63AE004C3C72 /* HaveToBudget.xcdatamodeld */,
+				918BCCD120CBD0250028C219 /* HaveToBudget.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,10 +178,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91CE168D20BC63AE004C3C72 /* HaveToBudget.xcdatamodeld in Sources */,
 				91CE168720BC63AE004C3C72 /* MainViewController.swift in Sources */,
 				91CE16A020BC79A8004C3C72 /* EnterBudgetViewController.swift in Sources */,
 				91CE169C20BC6A3E004C3C72 /* DetailViewController.swift in Sources */,
+				918BCCD320CBD0250028C219 /* HaveToBudget.xcdatamodeld in Sources */,
 				91CE169A20BC6830004C3C72 /* AddViewController.swift in Sources */,
 				91CE168520BC63AE004C3C72 /* AppDelegate.swift in Sources */,
 				918BCCBE20C404220028C219 /* CustomeCell.swift in Sources */,
@@ -384,12 +384,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		91CE168B20BC63AE004C3C72 /* HaveToBudget.xcdatamodeld */ = {
+		918BCCD120CBD0250028C219 /* HaveToBudget.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				91CE168C20BC63AE004C3C72 /* HaveToBudget.xcdatamodel */,
+				918BCCD220CBD0250028C219 /* HaveToBudget.xcdatamodel */,
 			);
-			currentVersion = 91CE168C20BC63AE004C3C72 /* HaveToBudget.xcdatamodel */;
+			currentVersion = 918BCCD220CBD0250028C219 /* HaveToBudget.xcdatamodel */;
 			path = HaveToBudget.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

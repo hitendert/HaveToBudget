@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="AddMoney" representedClassName=".AddMoney" syncable="YES" codeGenerationType="class">
-        <attribute name="addHowMuch" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="category" attributeType="String" syncable="YES"/>
-        <attribute name="sourceOfMoney" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="ExpenseMoney" representedClassName="ExpenseMoney" syncable="YES" codeGenerationType="class">
-        <attribute name="category" attributeType="String" syncable="YES"/>
-        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="forWhat" attributeType="String" syncable="YES"/>
-        <attribute name="howMuch" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    <entity name="MoneyTransactions" representedClassName="MoneyTransactions" syncable="YES" codeGenerationType="class">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="forOrFrom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="money" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AddMoney" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="ExpenseMoney" positionX="-54" positionY="18" width="128" height="105"/>
+        <element name="MoneyTransactions" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>

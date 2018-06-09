@@ -19,7 +19,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     let categoryArray : [String] = ["Charity","Savings","Housing","Utilities","Groceries","Restaurant","Clothing","Petrol","Vehichle Maintencance", "Medical", "Insurance", "Pocket Money", "Entertainment", "Vacation"]
     
-    var expenseArray : [AddMoney] = []
+    var expenseArray : [MoneyTransactions] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,13 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         
         loadBudget()
         
+        categoryPickerView.reloadAllComponents()
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadBudget()
     }
     
     
@@ -55,7 +61,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         for item in expenseArray {
             
             if selectedCategoy == item.category {
-                balanceLabel.text = "\(item.addHowMuch)"
+                balanceLabel.text = "\(item.money)"
             }
             
         }
@@ -72,7 +78,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     func loadBudget() {
         
-        let request : NSFetchRequest<AddMoney> = AddMoney.fetchRequest()
+        let request : NSFetchRequest<MoneyTransactions> = MoneyTransactions.fetchRequest()
         do {
             expenseArray = try context.fetch(request)
         } catch {
