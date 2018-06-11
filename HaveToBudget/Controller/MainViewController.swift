@@ -53,7 +53,6 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        print("Cursor here Hitu02")
         loadBudget()
         
        let selectedCategoy = categoryArray[row]

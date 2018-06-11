@@ -8,8 +8,13 @@
 
 import UIKit
 
-class CustomeCell: UITableViewCell {
+class CustomCell: UITableViewCell {
 
+
+    @IBOutlet weak var cellDateLabel: UILabel!
+    @IBOutlet weak var cellForOrFromLabel: UILabel!
+    @IBOutlet weak var cellMoneyLabel: UILabel!
+    
     var date : String = ""
     var forWhat : String = ""
     var howMuch : Int = 0

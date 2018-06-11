@@ -23,6 +23,8 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
     
     var addMoneyArray : [MoneyTransactions] = []
     
+    var detailExpensesArray : [DetailMoneyTransactions] = []
+    
     
     
     var categoryFound : Bool = false
@@ -79,7 +81,11 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
                     addMoneyArray[index].date = getDate()
                     categoryFound = true
                     
+                    createNewEntry()
+                    
                     saveIncome()
+                    loadTheArray()
+                    
                     
                 }
                 
@@ -92,8 +98,12 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
                     newMoney.forOrFrom = sourceOfMoneyTextField.text!
                     newMoney.category = selectedCategory
                     newMoney.date = getDate()
+                    newMoney.income = true
+                    
+                    createNewEntry()
                     
                     saveIncome()
+                    loadTheArray()
                     
                 }
                 
@@ -104,10 +114,13 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
             newMoney.forOrFrom = sourceOfMoneyTextField.text!
             newMoney.category = selectedCategory
             newMoney.date = getDate()
+            newMoney.income = true
+            
+            createNewEntry()
             
             saveIncome()
+            loadTheArray()
         }
-        
         
         
     }
@@ -128,8 +141,10 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
     func loadTheArray() {
         
         let request : NSFetchRequest<MoneyTransactions> = MoneyTransactions.fetchRequest()
+       
         do {
             addMoneyArray = try context.fetch(request)
+            
         } catch {
             print("Error while fetching in Enter Budget VC")
         }
@@ -144,6 +159,17 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
         let result = formatter.string(from: date)
         
         return result
+        
+    }
+    
+    func createNewEntry() {
+        
+        let newEntry = DetailMoneyTransactions(context: context)
+        newEntry.money = (addMoneyTextField.text! as NSString).doubleValue
+        newEntry.forOrFrom = sourceOfMoneyTextField.text!
+        newEntry.category = selectedCategory
+        newEntry.date = getDate()
+        
         
     }
     

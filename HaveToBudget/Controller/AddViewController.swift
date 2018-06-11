@@ -73,10 +73,12 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
                     expenseArray[items].category = selectedCategory
                     expenseArray[items].date = getDate()
 
+                    createNewEntry()
+                    
                     saveExpense()
 
                 } else {
-                    print("There's no budget entered for this yet")
+                   // Add an alert here telling the user that budget has not been entered yet for this category.
                 }
 
             }
@@ -120,6 +122,17 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         let result = formatter.string(from: date)
 
         return result
+    }
+    
+    func createNewEntry() {
+        
+        let newEntry = DetailMoneyTransactions(context: context)
+        newEntry.money = (howMuchTextField.text! as NSString).doubleValue
+        newEntry.forOrFrom = forWhatTextField.text!
+        newEntry.category = selectedCategory
+        newEntry.date = getDate()
+        
+        
     }
 
 
