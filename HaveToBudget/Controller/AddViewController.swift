@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
+class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate{
 
     @IBOutlet weak var addMoneyButton: UIButton!
     @IBOutlet weak var forWhatTextField: UITextField!
@@ -20,24 +20,17 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    var expenseArray : [MoneyTransactions] = []
-    
     var selectedCategory : String = ""
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        forWhatTextField.delegate = self
+        howMuchTextField.delegate = self
         addCategoryPickerView.dataSource = self
         addCategoryPickerView.delegate = self
-
-        loadBudget()
-
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBudget))
 
     }
 
@@ -61,44 +54,9 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
 
 
     @IBAction func bottomAddTapped(_ sender: Any) {
-
-        if expenseArray.count > 0 {
-
-            for items in 0..<expenseArray.count {
-
-                if (expenseArray[items].category == selectedCategory) {
-
-                    expenseArray[items].money -= (howMuchTextField.text! as NSString).doubleValue
-                    expenseArray[items].forOrFrom = forWhatTextField.text!
-                    expenseArray[items].category = selectedCategory
-                    expenseArray[items].date = getDate()
-
-                    createNewEntry()
-                    
-                    saveExpense()
-
-                } else {
-                   // Add an alert here telling the user that budget has not been entered yet for this category.
-                }
-
-            }
-
-
-        }
-
-    }
-
-
-    func loadBudget() {
-
-        let request : NSFetchRequest<MoneyTransactions> = MoneyTransactions.fetchRequest()
-
-        do {
-            expenseArray = try context.fetch(request)
-
-        } catch {
-            print ("Error while fetching data in AddViewController")
-        }
+        
+        createNewEntry()
+        saveExpense()
 
     }
 
@@ -131,11 +89,17 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         newEntry.forOrFrom = forWhatTextField.text!
         newEntry.category = selectedCategory
         newEntry.date = getDate()
+        newEntry.income = false
+    }
+    
+    @objc func addBudget() {
         
+        performSegue(withIdentifier: "goToBudgetVC", sender: self)
         
     }
 
-
-
-
+    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 }

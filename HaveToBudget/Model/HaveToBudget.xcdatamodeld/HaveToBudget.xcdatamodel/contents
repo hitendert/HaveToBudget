@@ -4,6 +4,7 @@
         <attribute name="category" attributeType="String" syncable="YES"/>
         <attribute name="date" attributeType="String" syncable="YES"/>
         <attribute name="forOrFrom" attributeType="String" syncable="YES"/>
+        <attribute name="income" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="money" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="MoneyTransactions" representedClassName="MoneyTransactions" syncable="YES" codeGenerationType="class">
@@ -14,7 +15,7 @@
         <attribute name="money" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DetailMoneyTransactions" positionX="-54" positionY="18" width="128" height="105"/>
+        <element name="DetailMoneyTransactions" positionX="-54" positionY="18" width="128" height="120"/>
         <element name="MoneyTransactions" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>

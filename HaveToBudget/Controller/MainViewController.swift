@@ -19,7 +19,13 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     let categoryArray : [String] = ["Charity","Savings","Housing","Utilities","Groceries","Restaurant","Clothing","Petrol","Vehichle Maintencance", "Medical", "Insurance", "Pocket Money", "Entertainment", "Vacation"]
     
-    var expenseArray : [MoneyTransactions] = []
+    var detailExpenseArray : [DetailMoneyTransactions] = []
+    
+    var filteredArray : [DetailMoneyTransactions] = []
+    
+    var balance : Double = 0.0
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +42,9 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     override func viewWillAppear(_ animated: Bool) {
         loadBudget()
+        
+         categoryPickerView.reloadAllComponents()
+        
     }
     
     
@@ -56,14 +65,13 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         loadBudget()
         
        let selectedCategoy = categoryArray[row]
+
+        filteredArray = detailExpenseArray.filter({$0.category == selectedCategoy})
         
-        for item in expenseArray {
-            
-            if selectedCategoy == item.category {
-                balanceLabel.text = "\(item.money)"
-            }
-            
-        }
+        let bal = calculateBalance()
+        
+        balanceLabel.text = "Rs. \(bal)/-"
+        
         
     }
 
@@ -77,13 +85,36 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     func loadBudget() {
         
-        let request : NSFetchRequest<MoneyTransactions> = MoneyTransactions.fetchRequest()
+        let request : NSFetchRequest<DetailMoneyTransactions> = DetailMoneyTransactions.fetchRequest()
         do {
-            expenseArray = try context.fetch(request)
+            detailExpenseArray = try context.fetch(request)
         } catch {
             print("Error in retrieving data")
         }
      
+    }
+    
+    func calculateBalance() -> Double {
+        
+        var income : Double = 0.0
+        var expenses : Double = 0.0
+        
+        for items in filteredArray {
+            
+            if items.income == true {
+                
+                income += items.money
+                
+            } else {
+                
+                expenses += items.money
+            }
+            
+        }
+        
+        balance = income - expenses
+    
+        return balance
     }
     
 }

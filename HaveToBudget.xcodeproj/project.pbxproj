@@ -10,6 +10,9 @@
 		918BCCBE20C404220028C219 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BCCBC20C404220028C219 /* CustomCell.swift */; };
 		918BCCD320CBD0250028C219 /* HaveToBudget.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 918BCCD120CBD0250028C219 /* HaveToBudget.xcdatamodeld */; };
 		918BCCD420CD00660028C219 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 918BCCBD20C404220028C219 /* CustomCell.xib */; };
+		918BCCD620CEE8BC0028C219 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BCCD520CEE8BC0028C219 /* SummaryViewController.swift */; };
+		918BCCDB20CEEA1B0028C219 /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BCCD920CEEA1B0028C219 /* SummaryCell.swift */; };
+		918BCCDC20CEEA1B0028C219 /* SummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 918BCCDA20CEEA1B0028C219 /* SummaryCell.xib */; };
 		91CE168520BC63AE004C3C72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE168420BC63AE004C3C72 /* AppDelegate.swift */; };
 		91CE168720BC63AE004C3C72 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE168620BC63AE004C3C72 /* MainViewController.swift */; };
 		91CE168A20BC63AE004C3C72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91CE168820BC63AE004C3C72 /* Main.storyboard */; };
@@ -24,6 +27,9 @@
 		918BCCBC20C404220028C219 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		918BCCBD20C404220028C219 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		918BCCD220CBD0250028C219 /* HaveToBudget.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HaveToBudget.xcdatamodel; sourceTree = "<group>"; };
+		918BCCD520CEE8BC0028C219 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		918BCCD920CEEA1B0028C219 /* SummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
+		918BCCDA20CEEA1B0028C219 /* SummaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryCell.xib; sourceTree = "<group>"; };
 		91CE168120BC63AE004C3C72 /* HaveToBudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaveToBudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91CE168420BC63AE004C3C72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91CE168620BC63AE004C3C72 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +60,7 @@
 				91CE169920BC6830004C3C72 /* AddViewController.swift */,
 				91CE169B20BC6A3E004C3C72 /* DetailViewController.swift */,
 				91CE169F20BC79A8004C3C72 /* EnterBudgetViewController.swift */,
+				918BCCD520CEE8BC0028C219 /* SummaryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -73,6 +80,8 @@
 				91CE169020BC63B0004C3C72 /* LaunchScreen.storyboard */,
 				918BCCBC20C404220028C219 /* CustomCell.swift */,
 				918BCCBD20C404220028C219 /* CustomCell.xib */,
+				918BCCD920CEEA1B0028C219 /* SummaryCell.swift */,
+				918BCCDA20CEEA1B0028C219 /* SummaryCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,6 +177,7 @@
 				91CE169220BC63B0004C3C72 /* LaunchScreen.storyboard in Resources */,
 				91CE168F20BC63B0004C3C72 /* Assets.xcassets in Resources */,
 				91CE168A20BC63AE004C3C72 /* Main.storyboard in Resources */,
+				918BCCDC20CEEA1B0028C219 /* SummaryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +191,8 @@
 				91CE168720BC63AE004C3C72 /* MainViewController.swift in Sources */,
 				91CE16A020BC79A8004C3C72 /* EnterBudgetViewController.swift in Sources */,
 				91CE169C20BC6A3E004C3C72 /* DetailViewController.swift in Sources */,
+				918BCCD620CEE8BC0028C219 /* SummaryViewController.swift in Sources */,
+				918BCCDB20CEEA1B0028C219 /* SummaryCell.swift in Sources */,
 				918BCCD320CBD0250028C219 /* HaveToBudget.xcdatamodeld in Sources */,
 				91CE169A20BC6830004C3C72 /* AddViewController.swift in Sources */,
 				91CE168520BC63AE004C3C72 /* AppDelegate.swift in Sources */,

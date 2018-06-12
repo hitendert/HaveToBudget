@@ -21,30 +21,30 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gn-oE-143">
-                        <rect key="frame" x="16" y="0.0" width="104.5" height="12"/>
+                        <rect key="frame" x="16" y="0.0" width="147.5" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="4Gn-oE-143" secondAttribute="height" multiplier="61:7" id="GCV-SS-XIx"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                        <color key="textColor" red="0.066666666669999999" green="0.51372549020000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qs8-p5-f0O">
-                        <rect key="frame" x="16" y="13" width="176.5" height="26.5"/>
+                        <rect key="frame" x="16" y="18" width="143.5" height="21.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="qs8-p5-f0O" secondAttribute="height" multiplier="173:26" id="hv8-Eh-VLa"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGK-YV-r2J">
-                        <rect key="frame" x="166.5" y="13" width="137.5" height="26.5"/>
+                        <rect key="frame" x="192.5" y="18" width="111.5" height="21.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="iGK-YV-r2J" secondAttribute="height" multiplier="135:26" id="clP-1U-PbW"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>

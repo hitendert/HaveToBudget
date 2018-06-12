@@ -19,8 +19,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
      let categoryArray : [String] = ["Select a Category", "All","Charity","Savings","Housing","Utilities","Groceries","Restaurant","Clothing","Petrol","Vehichle Maintencance", "Medical", "Insurance", "Pocket Money", "Entertainment", "Vacation"]
     
-    var expenseArray : [MoneyTransactions] = []
-    
     var detailExpenseArray : [DetailMoneyTransactions] = []
     
     var filteredArray : [DetailMoneyTransactions] = []
@@ -28,7 +26,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var selectedCategory : String = ""
     
     var entryToBeDeleted = DetailMoneyTransactions()
-    var anotherEntryToBeDeleted = MoneyTransactions()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +38,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         detailTableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: "customCellIdentifier")
-        
-        
         
         loadBudget()
     }
@@ -101,6 +96,11 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.cellDateLabel.text = detailExpenseArray[indexPath.row].date
         cell.cellForOrFromLabel.text = detailExpenseArray[indexPath.row].forOrFrom
         cell.cellMoneyLabel.text = "\(detailExpenseArray[indexPath.row].money)"
+            if (detailExpenseArray[indexPath.row].income == true){
+                cell.cellMoneyLabel.textColor = UIColor.green
+            } else {
+                cell.cellMoneyLabel.textColor = UIColor.red
+            }
         print("Cursor here hitu07")
         
         } else {
@@ -108,9 +108,13 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.cellDateLabel.text = filteredArray[indexPath.row].date
             cell.cellForOrFromLabel.text = filteredArray[indexPath.row].forOrFrom
             cell.cellMoneyLabel.text = "\(filteredArray[indexPath.row].money)"
+            if (filteredArray[indexPath.row].income == true){
+                cell.cellMoneyLabel.textColor = UIColor.green
+            } else {
+                cell.cellMoneyLabel.textColor = UIColor.red
+            }
             
         }
-        
         
         return cell
     }
@@ -136,9 +140,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             detailExpenseArray.remove(at: indexPath.row)
             detailTableView.reloadData()
             
-            deleteFromMoneyTransactions()
-            
-            
             deleteEntries()
             
             saveTheEntries()
@@ -149,11 +150,10 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func loadBudget() {
         
         let request : NSFetchRequest<DetailMoneyTransactions> = DetailMoneyTransactions.fetchRequest()
-        let anotherRequest : NSFetchRequest<MoneyTransactions> = MoneyTransactions.fetchRequest()
         
         do {
             detailExpenseArray = try context.fetch(request)
-            expenseArray = try context.fetch(anotherRequest)
+           
         } catch {
             print("Error while loading data in Details VC")
         }
@@ -164,7 +164,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func deleteEntries() {
         
         context.delete(entryToBeDeleted)
-        //context.delete(anotherEntryToBeDeleted)
         
     }
     
@@ -178,27 +177,4 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    func deleteFromMoneyTransactions() {
-        
-        for items in expenseArray {
-            
-            if items.category == entryToBeDeleted.category {
-                
-                if items.income == false {
-                 
-                        items.money += entryToBeDeleted.money
-                } else {
-                    
-                    items.money -= entryToBeDeleted.money
-                }
-                
-            }
-            
-        }
-        
-    }
-
-    
-    
-
 }

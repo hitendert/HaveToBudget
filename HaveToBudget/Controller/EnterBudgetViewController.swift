@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
     
     @IBOutlet weak var addMoneyTextField: UITextField!
@@ -21,12 +21,6 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    var addMoneyArray : [MoneyTransactions] = []
-    
-    var detailExpensesArray : [DetailMoneyTransactions] = []
-    
-    
-    
     var categoryFound : Bool = false
     
     override func viewDidLoad() {
@@ -34,17 +28,12 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
         
         addMoneyTextField.delegate = self
         addMoneyTextField.keyboardType = .decimalPad
+        sourceOfMoneyTextField.delegate = self
+        
         enterCategoryPickerView.delegate = self
         enterCategoryPickerView.dataSource = self
        
-        loadTheArray()
-        print("Hitu count = \(addMoneyArray.count)")
-        
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        loadTheArray()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(clearAll))
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -66,62 +55,9 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
   
     @IBAction func bottomAddTapped(_ sender: Any) {
         
+        createNewEntry()
         
-        if addMoneyArray.count > 0 {
-            
-            print("Hitu001 Cursor here")
-            for index in 0..<addMoneyArray.count {
-                
-                if addMoneyArray[index].category == selectedCategory {
-                    
-                    print("Hitu002 Cursor here")
-                    addMoneyArray[index].money += (addMoneyTextField.text! as NSString).doubleValue
-                    addMoneyArray[index].forOrFrom = sourceOfMoneyTextField.text!
-                    addMoneyArray[index].category = selectedCategory
-                    addMoneyArray[index].date = getDate()
-                    categoryFound = true
-                    
-                    createNewEntry()
-                    
-                    saveIncome()
-                    loadTheArray()
-                    
-                    
-                }
-                
-            }
-                if categoryFound == false {
-                    
-                    print("Hitu003 Cursor here")
-                    let newMoney = MoneyTransactions(context: context)
-                    newMoney.money = (addMoneyTextField.text! as NSString).doubleValue
-                    newMoney.forOrFrom = sourceOfMoneyTextField.text!
-                    newMoney.category = selectedCategory
-                    newMoney.date = getDate()
-                    newMoney.income = true
-                    
-                    createNewEntry()
-                    
-                    saveIncome()
-                    loadTheArray()
-                    
-                }
-                
-        } else {
-            print("Hitu004 Cursor here")
-            let newMoney = MoneyTransactions(context: context)
-            newMoney.money = (addMoneyTextField.text! as NSString).doubleValue
-            newMoney.forOrFrom = sourceOfMoneyTextField.text!
-            newMoney.category = selectedCategory
-            newMoney.date = getDate()
-            newMoney.income = true
-            
-            createNewEntry()
-            
-            saveIncome()
-            loadTheArray()
-        }
-        
+        saveIncome()
         
     }
     
@@ -138,18 +74,7 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
         
     }
     
-    func loadTheArray() {
-        
-        let request : NSFetchRequest<MoneyTransactions> = MoneyTransactions.fetchRequest()
-       
-        do {
-            addMoneyArray = try context.fetch(request)
-            
-        } catch {
-            print("Error while fetching in Enter Budget VC")
-        }
-        
-    }
+    
     
     func getDate() -> String {
         
@@ -169,9 +94,71 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
         newEntry.forOrFrom = sourceOfMoneyTextField.text!
         newEntry.category = selectedCategory
         newEntry.date = getDate()
+        newEntry.income = true
         
         
     }
     
+    @objc func clearAll() {
+        
+        // Create the alert controller
+        let alertController = UIAlertController(title: "Clear all data", message: "Are you sure you want to clear all the data ? This can't be Undone", preferredStyle: .alert)
+        
+        // Create the actions
+        let okAction = UIAlertAction(title: "Yes, I'm sure", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            NSLog("OK Pressed")
+            let fetchRequest : NSFetchRequest<DetailMoneyTransactions> = DetailMoneyTransactions.fetchRequest()
+            
+            fetchRequest.returnsObjectsAsFaults = false
+            
+            do {
+                let results = try self.context.fetch(fetchRequest)
+                for items in results {
+                    self.context.delete(items)
+                }
+            } catch {
+                print("error while deleting all")
+            }
+            
+            self.saveIncome()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            
+            alertController.dismiss(animated: true, completion: nil)
+        }
+        
+        // Add the actions
+        
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
+        // Present the controller
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
 
+    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
