@@ -27,6 +27,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var entryToBeDeleted = DetailMoneyTransactions()
     
+    var incomeToBeDeleted = Income()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -97,9 +99,9 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.cellForOrFromLabel.text = detailExpenseArray[indexPath.row].forOrFrom
         cell.cellMoneyLabel.text = "\(detailExpenseArray[indexPath.row].money)"
             if (detailExpenseArray[indexPath.row].income == true){
-                cell.cellMoneyLabel.textColor = UIColor.green
+                cell.cellMoneyLabel.textColor = UIColor(red:0.44, green:0.71, blue:0.28, alpha:1.0)
             } else {
-                cell.cellMoneyLabel.textColor = UIColor.red
+                cell.cellMoneyLabel.textColor = UIColor(red:1.00, green:0.40, blue:0.40, alpha:1.0)
             }
         print("Cursor here hitu07")
         
@@ -109,9 +111,9 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.cellForOrFromLabel.text = filteredArray[indexPath.row].forOrFrom
             cell.cellMoneyLabel.text = "\(filteredArray[indexPath.row].money)"
             if (filteredArray[indexPath.row].income == true){
-                cell.cellMoneyLabel.textColor = UIColor.green
+                cell.cellMoneyLabel.textColor = UIColor(red:0.44, green:0.71, blue:0.28, alpha:1.0)
             } else {
-                cell.cellMoneyLabel.textColor = UIColor.red
+                cell.cellMoneyLabel.textColor = UIColor(red:1.00, green:0.40, blue:0.40, alpha:1.0)
             }
             
         }
@@ -137,11 +139,17 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             print("Delete pressed")
             
             entryToBeDeleted = detailExpenseArray[indexPath.row]
+            
+            if entryToBeDeleted.income == true {
+                enterIntoIncome(income : entryToBeDeleted.money)
+            }
+            
             detailExpenseArray.remove(at: indexPath.row)
             detailTableView.reloadData()
             
             deleteEntries()
             
+            //
             saveTheEntries()
             
         }
@@ -174,6 +182,12 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         } catch {
             print("Error while saving data in DetailVC")
         }
+    }
+    
+    func enterIntoIncome(income : Double) {
+        
+        let newIncome = Income(context: context)
+        newIncome.income = income
     }
     
     

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DetailMoneyTransactions" representedClassName="DetailMoneyTransactions" syncable="YES" codeGenerationType="class">
         <attribute name="category" attributeType="String" syncable="YES"/>
         <attribute name="date" attributeType="String" syncable="YES"/>
         <attribute name="forOrFrom" attributeType="String" syncable="YES"/>
         <attribute name="income" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="money" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="Income" representedClassName="Income" syncable="YES" codeGenerationType="class">
+        <attribute name="income" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="MoneyTransactions" representedClassName="MoneyTransactions" syncable="YES" codeGenerationType="class">
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
@@ -17,5 +20,6 @@
     <elements>
         <element name="DetailMoneyTransactions" positionX="-54" positionY="18" width="128" height="120"/>
         <element name="MoneyTransactions" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Income" positionX="-54" positionY="36" width="128" height="60"/>
     </elements>
 </model>

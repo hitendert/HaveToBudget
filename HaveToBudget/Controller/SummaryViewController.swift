@@ -17,18 +17,29 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var detailExpenseArray : [DetailMoneyTransactions] = []
     
-    var groupedArray : [DetailMoneyTransactions] = []
+    //var groupedArray : [DetailMoneyTransactions] = []
     
-    var sortedArray : [DetailMoneyTransactions] = []
+    var groupedArray : [SummaryModel] = []
+    
+    var sortedArray : [SummaryModel] = []
     
     var count = 0;
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        
+        detailExpenseArray.removeAll()
+        
+        groupedArray.removeAll()
+        
+        sortedArray.removeAll()
+        
         loadBudget()
         
-        groupedArray = []
+        
         
         count = 0
         
@@ -40,7 +51,11 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         summaryTableView.register(UINib(nibName: "SummaryCell", bundle: nil), forCellReuseIdentifier: "summaryCellIdentifier")
         
-        
+        print("Hitu01 here")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+       // groupedArray.removeAll()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -55,13 +70,13 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "summaryCellIdentifier", for: indexPath) as! SummaryCell
         
-        cell.forWhatLabel.text = sortedArray[indexPath.row].forOrFrom
+        cell.forWhatLabel.text = sortedArray[indexPath.row].name
         cell.howMuchLabel.text = "\(sortedArray[indexPath.row].money)"
         
         if sortedArray[indexPath.row].income == true {
-            cell.howMuchLabel.textColor = UIColor.green
+            cell.howMuchLabel.textColor = UIColor(red:0.44, green:0.71, blue:0.28, alpha:1.0)
         } else {
-            cell.howMuchLabel.textColor = UIColor.red
+            cell.howMuchLabel.textColor = UIColor(red:1.00, green:0.40, blue:0.40, alpha:1.0)
         }
         
         return cell
@@ -80,20 +95,22 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func groupTheExpenses() {
         
-        
+         groupedArray.removeAll()
         
         for items in detailExpenseArray {
             
             var itemFound : Bool = false
             
             if count == 0 {
-                groupedArray.append(items)
+                
+                groupedArray.append(SummaryModel(name: items.forOrFrom!, money: items.money, income: items.income))
+                
             } else {
                 
                 for group in groupedArray {
                     
-                    print("Hitu count = \(groupedArray.count)")
-                    if group.forOrFrom == items.forOrFrom {
+                    
+                    if group.name.uppercased() == items.forOrFrom?.uppercased() {
                         
                         group.money += items.money
                        
@@ -106,7 +123,8 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
                 
                 if itemFound == false {
-                    groupedArray.append(items)
+                    
+                   groupedArray.append(SummaryModel(name: items.forOrFrom!, money: items.money, income: items.income))
                 }
             }
             count = 1;
@@ -117,13 +135,13 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     
-    func saveExpenses() {
-        do {
-            try context.save()
-        } catch {
-            print("Error while saving data in Summary")
-        }
-    }
+//    func saveExpenses() {
+//        do {
+//            try context.save()
+//        } catch {
+//            print("Error while saving data in Summary")
+//        }
+//    }
     
     
     

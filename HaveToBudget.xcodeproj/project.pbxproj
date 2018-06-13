@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		918054A120D14F3800EDAF61 /* EnterIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918054A020D14F3800EDAF61 /* EnterIncomeViewController.swift */; };
 		918BCCBE20C404220028C219 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918BCCBC20C404220028C219 /* CustomCell.swift */; };
 		918BCCD320CBD0250028C219 /* HaveToBudget.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 918BCCD120CBD0250028C219 /* HaveToBudget.xcdatamodeld */; };
 		918BCCD420CD00660028C219 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 918BCCBD20C404220028C219 /* CustomCell.xib */; };
@@ -21,9 +22,13 @@
 		91CE169A20BC6830004C3C72 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE169920BC6830004C3C72 /* AddViewController.swift */; };
 		91CE169C20BC6A3E004C3C72 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE169B20BC6A3E004C3C72 /* DetailViewController.swift */; };
 		91CE16A020BC79A8004C3C72 /* EnterBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE169F20BC79A8004C3C72 /* EnterBudgetViewController.swift */; };
+		91E192AD20D04E5300C759E1 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 91E192AA20D04E5200C759E1 /* ProgressHUD.bundle */; };
+		91E192AE20D04E5300C759E1 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E192AB20D04E5300C759E1 /* ProgressHUD.m */; };
+		91E192B020D05BDE00C759E1 /* SummaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E192AF20D05BDE00C759E1 /* SummaryModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		918054A020D14F3800EDAF61 /* EnterIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterIncomeViewController.swift; sourceTree = "<group>"; };
 		918BCCBC20C404220028C219 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		918BCCBD20C404220028C219 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		918BCCD220CBD0250028C219 /* HaveToBudget.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HaveToBudget.xcdatamodel; sourceTree = "<group>"; };
@@ -40,6 +45,11 @@
 		91CE169920BC6830004C3C72 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		91CE169B20BC6A3E004C3C72 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		91CE169F20BC79A8004C3C72 /* EnterBudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterBudgetViewController.swift; sourceTree = "<group>"; };
+		91E192A920D04E5200C759E1 /* HaveToBudget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HaveToBudget-Bridging-Header.h"; sourceTree = "<group>"; };
+		91E192AA20D04E5200C759E1 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		91E192AB20D04E5300C759E1 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		91E192AC20D04E5300C759E1 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		91E192AF20D05BDE00C759E1 /* SummaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +71,7 @@
 				91CE169B20BC6A3E004C3C72 /* DetailViewController.swift */,
 				91CE169F20BC79A8004C3C72 /* EnterBudgetViewController.swift */,
 				918BCCD520CEE8BC0028C219 /* SummaryViewController.swift */,
+				918054A020D14F3800EDAF61 /* EnterIncomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -69,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				918BCCD120CBD0250028C219 /* HaveToBudget.xcdatamodeld */,
+				91E192AF20D05BDE00C759E1 /* SummaryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -105,6 +117,7 @@
 		91CE168320BC63AE004C3C72 /* HaveToBudget */ = {
 			isa = PBXGroup;
 			children = (
+				91E192A820D04E2100C759E1 /* Supporting Files */,
 				9103B25C20BDD33800602801 /* Model */,
 				9103B25D20BDD35C00602801 /* View */,
 				9103B25B20BDD31C00602801 /* Controller */,
@@ -113,6 +126,18 @@
 				91CE169320BC63B0004C3C72 /* Info.plist */,
 			);
 			path = HaveToBudget;
+			sourceTree = "<group>";
+		};
+		91E192A820D04E2100C759E1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				91E192AA20D04E5200C759E1 /* ProgressHUD.bundle */,
+				91E192AC20D04E5300C759E1 /* ProgressHUD.h */,
+				91E192AB20D04E5300C759E1 /* ProgressHUD.m */,
+				91E192A920D04E5200C759E1 /* HaveToBudget-Bridging-Header.h */,
+			);
+			name = "Supporting Files";
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +172,7 @@
 				TargetAttributes = {
 					91CE168020BC63AE004C3C72 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -175,6 +201,7 @@
 			files = (
 				918BCCD420CD00660028C219 /* CustomCell.xib in Resources */,
 				91CE169220BC63B0004C3C72 /* LaunchScreen.storyboard in Resources */,
+				91E192AD20D04E5300C759E1 /* ProgressHUD.bundle in Resources */,
 				91CE168F20BC63B0004C3C72 /* Assets.xcassets in Resources */,
 				91CE168A20BC63AE004C3C72 /* Main.storyboard in Resources */,
 				918BCCDC20CEEA1B0028C219 /* SummaryCell.xib in Resources */,
@@ -190,9 +217,12 @@
 			files = (
 				91CE168720BC63AE004C3C72 /* MainViewController.swift in Sources */,
 				91CE16A020BC79A8004C3C72 /* EnterBudgetViewController.swift in Sources */,
+				91E192AE20D04E5300C759E1 /* ProgressHUD.m in Sources */,
 				91CE169C20BC6A3E004C3C72 /* DetailViewController.swift in Sources */,
 				918BCCD620CEE8BC0028C219 /* SummaryViewController.swift in Sources */,
 				918BCCDB20CEEA1B0028C219 /* SummaryCell.swift in Sources */,
+				918054A120D14F3800EDAF61 /* EnterIncomeViewController.swift in Sources */,
+				91E192B020D05BDE00C759E1 /* SummaryModel.swift in Sources */,
 				918BCCD320CBD0250028C219 /* HaveToBudget.xcdatamodeld in Sources */,
 				91CE169A20BC6830004C3C72 /* AddViewController.swift in Sources */,
 				91CE168520BC63AE004C3C72 /* AppDelegate.swift in Sources */,
@@ -340,6 +370,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R783ACM2V9;
 				INFOPLIST_FILE = HaveToBudget/Info.plist;
@@ -349,6 +380,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.HitenderThejaswi.HaveToBudget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HaveToBudget/New Group/HaveToBudget-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -358,6 +391,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R783ACM2V9;
 				INFOPLIST_FILE = HaveToBudget/Info.plist;
@@ -367,6 +401,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.HitenderThejaswi.HaveToBudget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HaveToBudget/New Group/HaveToBudget-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

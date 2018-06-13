@@ -17,7 +17,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    let categoryArray : [String] = ["Charity","Savings","Housing","Utilities","Groceries","Restaurant","Clothing","Petrol","Vehichle Maintencance", "Medical", "Insurance", "Pocket Money", "Entertainment", "Vacation"]
+    let categoryArray : [String] = ["Charity","Savings","Housing","Utilities","Select a category","Groceries","Restaurant","Clothing","Petrol","Vehichle Maintencance", "Medical", "Insurance", "Pocket Money", "Entertainment", "Vacation"]
     
     var detailExpenseArray : [DetailMoneyTransactions] = []
     
@@ -30,6 +30,10 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font : UIFont(name : "HelveticaNeue-Light", size : 20)]
+        
+        
+        
         categoryPickerView.delegate = self
         categoryPickerView.dataSource = self
         
@@ -37,15 +41,22 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         
         categoryPickerView.reloadAllComponents()
         
+        categoryPickerView.selectRow(4, inComponent: 0, animated: true)
+        balanceLabel.text = "₹"
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        categoryPickerView.selectRow(4, inComponent: 0, animated: true)
+        balanceLabel.text = "₹"
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadBudget()
-        
-         categoryPickerView.reloadAllComponents()
-        
+       //categoryPickerView.selectRow(4, inComponent: 0, animated: true)
     }
+    
+    
     
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -70,8 +81,13 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         
         let bal = calculateBalance()
         
-        balanceLabel.text = "Rs. \(bal)/-"
+        balanceLabel.text = "₹ \(bal)"
         
+        if (balanceLabel.text?.contains("-"))! {
+            balanceLabel.textColor = UIColor(red:1.00, green:0.40, blue:0.40, alpha:1.0)
+        } else {
+            balanceLabel.textColor = UIColor(red:0.07, green:0.51, blue:0.76, alpha:1.0)
+        }
         
     }
 

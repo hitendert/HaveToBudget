@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,24 +19,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background-bills-cash-929277" translatesAutoresizingMaskIntoConstraints="NO" id="G9e-qm-Bod">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G9e-qm-Bod">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have To Budget" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enj-tS-Pxv">
-                                <rect key="frame" x="77" y="181" width="221" height="55"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-bills-cash-929277" translatesAutoresizingMaskIntoConstraints="NO" id="2kh-H3-5fi">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="YDi-Wb-7iF">
+                                <rect key="frame" x="0.0" y="32" width="375" height="199"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="enj-tS-Pxv" secondAttribute="height" multiplier="221:55" id="EM2-rx-x9b"/>
+                                    <constraint firstAttribute="width" secondItem="YDi-Wb-7iF" secondAttribute="height" multiplier="375:199" id="xQa-7z-fLk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="28"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="enj-tS-Pxv" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="eN8-Hf-xqJ"/>
-                            <constraint firstItem="enj-tS-Pxv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="161" id="s5O-bT-XSH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YDi-Wb-7iF" secondAttribute="trailing" id="1ZB-Vt-v2G"/>
+                            <constraint firstItem="2kh-H3-5fi" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="3Un-7u-6Kc"/>
+                            <constraint firstItem="2kh-H3-5fi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Jbn-Wl-HgX"/>
+                            <constraint firstItem="YDi-Wb-7iF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="N3i-pY-q3r"/>
+                            <constraint firstItem="2kh-H3-5fi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dEW-a7-Xc3"/>
+                            <constraint firstItem="2kh-H3-5fi" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="i9k-oo-f1z"/>
+                            <constraint firstItem="YDi-Wb-7iF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="qgF-JC-BKZ"/>
+                            <constraint firstItem="YDi-Wb-7iF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="txt-od-k9X"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -48,5 +54,6 @@
     </scenes>
     <resources>
         <image name="background-bills-cash-929277" width="6000" height="4000"/>
+        <image name="background2" width="738" height="684"/>
     </resources>
 </document>
