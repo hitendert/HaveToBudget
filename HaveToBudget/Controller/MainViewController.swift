@@ -17,7 +17,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    let categoryArray : [String] = ["Charity","Savings","Housing","Utilities","Select a category","Groceries","Restaurant","Clothing","Petrol","Vehichle Maintencance", "Medical", "Insurance", "Pocket Money", "Entertainment", "Vacation"]
+    let categoryArray : [String] = ["Charity","Savings","Housing","Utilities","Select a category","Groceries","Restaurant","Clothing","Petrol","Vehichle Maintencance", "Medical", "Insurance", "Pocket Money", "Personal", "Entertainment", "Vacation", "Debts"]
     
     var detailExpenseArray : [DetailMoneyTransactions] = []
     
@@ -90,7 +90,8 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         }
         
     }
-
+    
+    
     @IBAction func addButtonTapped(_ sender: Any) {
         
     }

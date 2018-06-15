@@ -18,7 +18,7 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
     var selectedCategory : String = ""
     @IBOutlet weak var incomeLabel: UILabel!
     
-    let categoryArray : [String] = ["Charity","Savings","Housing","Utilities","Select a category","Groceries","Restaurant","Clothing","Petrol","Vehichle Maintencance", "Medical", "Insurance", "Pocket Money", "Entertainment", "Vacation"]
+    let categoryArray : [String] = ["Charity","Savings","Housing","Utilities","Select a category","Groceries","Restaurant","Clothing","Petrol","Vehichle Maintencance", "Medical", "Insurance", "Pocket Money", "Personal", "Entertainment", "Vacation", "Debts"]
     
     
     
@@ -45,6 +45,8 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
         enterCategoryPickerView.selectRow(4, inComponent: 0, animated: true)
         
        incomeArray.removeAll()
+        
+        addMoneyTextField.addDoneButtonToKeyboard(myAction:  #selector(self.addMoneyTextField.resignFirstResponder))
         
         
     }
@@ -98,7 +100,7 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
                 incomeBalance = 0.0
                 loadIncomeLabel()
                 calculateIncome()
-                incomeLabel.text = "\(incomeBalance)"
+                incomeLabel.text = "Income to be budgeted : ₹\(incomeBalance)"
                 
             } else {
                 // Create the alert controller
@@ -167,6 +169,11 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
         
     }
     
+    func getDates() -> Date {
+        let dates = Date()
+        return dates
+    }
+    
     func createNewEntry() {
         
         let newEntry = DetailMoneyTransactions(context: context)
@@ -175,6 +182,7 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
         newEntry.category = selectedCategory
         newEntry.date = getDate()
         newEntry.income = true
+        newEntry.dates = getDates()
         
         let newIncome = Income(context: context)
         newIncome.income = -(addMoneyTextField.text! as NSString).doubleValue
@@ -267,6 +275,26 @@ class EnterBudgetViewController: UIViewController, UITextFieldDelegate, UIPicker
             incomeBalance += items.income
         }
         
+    }
+}
+
+extension UITextField{
+    
+    func addDone2ButtonToKeyboard(myAction:Selector?){
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
+        doneToolbar.barStyle = UIBarStyle.default
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: myAction)
+        
+        var items = [UIBarButtonItem]()
+        items.append(flexSpace)
+        items.append(done)
+        
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.inputAccessoryView = doneToolbar
     }
 }
 

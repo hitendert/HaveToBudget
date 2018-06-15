@@ -17,9 +17,10 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-     let categoryArray : [String] = ["Select a Category", "All","Charity","Savings","Housing","Utilities","Groceries","Restaurant","Clothing","Petrol","Vehichle Maintencance", "Medical", "Insurance", "Pocket Money", "Entertainment", "Vacation"]
+     let categoryArray : [String] = ["Select a Category", "All","Charity","Savings","Housing","Utilities","Groceries","Restaurant","Clothing","Petrol","Vehichle Maintencance", "Medical", "Insurance", "Pocket Money", "Personal", "Entertainment", "Vacation", "Debts"]
     
     var detailExpenseArray : [DetailMoneyTransactions] = []
+    
     
     var filteredArray : [DetailMoneyTransactions] = []
     
@@ -95,6 +96,10 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         if (selectedCategory == "All") {
         
+            
+           
+            
+            
         cell.cellDateLabel.text = detailExpenseArray[indexPath.row].date
         cell.cellForOrFromLabel.text = detailExpenseArray[indexPath.row].forOrFrom
         cell.cellMoneyLabel.text = "\(detailExpenseArray[indexPath.row].money)"
@@ -105,6 +110,10 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         print("Cursor here hitu07")
         
+            
+            
+            
+            
         } else {
             print("Cursoe here hitu08")
             cell.cellDateLabel.text = filteredArray[indexPath.row].date
@@ -158,6 +167,10 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func loadBudget() {
         
         let request : NSFetchRequest<DetailMoneyTransactions> = DetailMoneyTransactions.fetchRequest()
+        
+        let sortDescriptor = NSSortDescriptor(key: #keyPath(DetailMoneyTransactions.dates), ascending: false)
+        
+        request.sortDescriptors = [sortDescriptor]
         
         do {
             detailExpenseArray = try context.fetch(request)

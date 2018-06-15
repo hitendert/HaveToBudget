@@ -16,7 +16,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     @IBOutlet weak var howMuchTextField: UITextField!
     @IBOutlet weak var addCategoryPickerView: UIPickerView!
     
-    let categoryArray : [String] = ["Charity","Savings","Housing","Utilities","Select a category","Groceries","Restaurant","Clothing","Petrol","Vehichle Maintencance", "Medical", "Insurance", "Pocket Money", "Entertainment", "Vacation"]
+    let categoryArray : [String] = ["Charity","Savings","Housing","Utilities","Select a category","Groceries","Restaurant","Clothing","Petrol","Vehichle Maintencance", "Medical", "Insurance", "Pocket Money", "Personal", "Entertainment", "Vacation", "Debts"]
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -34,6 +34,8 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBudget))
 
         addCategoryPickerView.selectRow(4, inComponent: 0, animated: true)
+        
+        howMuchTextField.addDoneButtonToKeyboard(myAction:  #selector(self.howMuchTextField.resignFirstResponder))
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -113,6 +115,11 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         return result
     }
     
+    func getDates() -> Date {
+        let dates = Date()
+        return dates
+    }
+    
     func createNewEntry() {
         
         let forWhat = trimTrailingSpace(stringToBeTrimmed: forWhatTextField.text!)
@@ -124,6 +131,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         newEntry.category = selectedCategory
         newEntry.date = getDate()
         newEntry.income = false
+        newEntry.dates = getDates()
     }
     
     @objc func addBudget() {
@@ -154,6 +162,26 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         view.endEditing(true)
     }
     
+}
+
+extension UITextField{
+    
+    func addDone1ButtonToKeyboard(myAction:Selector?){
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
+        doneToolbar.barStyle = UIBarStyle.default
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: myAction)
+        
+        var items = [UIBarButtonItem]()
+        items.append(flexSpace)
+        items.append(done)
+        
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.inputAccessoryView = doneToolbar
+    }
 }
 
 
